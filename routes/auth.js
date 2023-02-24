@@ -25,7 +25,7 @@ router.post("/register", async (req, res) => {
 
     const savedToken = await token.save();
 
-    const url = `${process.env.BASE_URL}/users/${savedUser._id}/verify/${savedToken.token}`;
+    const url = `${process.env.BASE_URL}/${savedUser._id}/verify/${savedToken.token}`;
 
     await sendMail(savedUser.email,"Verify Email",url)
     

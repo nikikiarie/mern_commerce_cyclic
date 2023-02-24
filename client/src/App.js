@@ -23,7 +23,7 @@ function App() {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/products/:cat" element={<ProductList />} />
         <Route path="/success" element={<Success />} />
-        <Route path="/users/:id/verify/:token" element={<Verify />} />
+        <Route path="/:id/verify/:token" element={<Verify />} />
 
 
 
