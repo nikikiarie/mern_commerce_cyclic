@@ -106,7 +106,7 @@ const createOrder = async (customer, data) => {
 //stripe webhook
 
 const endpointSecret =
-  "whsec_dfd33e15bc2e22f6bb0d2771f558e4760cbb19fe5f08e22ff8ec2c16ac0073a9";
+  "we_1MewBnEVh4wUNDFXB7tUJgen";
 
 router.post(
   "/webhook",
