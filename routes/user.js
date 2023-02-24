@@ -1,6 +1,7 @@
 const { verifyTokenAndUser, verifyTokenAndAdmin } = require("../verifyToken");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const Token = require("../models/Token");
 
 const router = require("express").Router();
 
@@ -86,4 +87,26 @@ router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get("/:userId/verify/:token", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    if (!user) return res.status(400).json("invalid link");
+
+    const token = await Token.findOne({
+      userId: req.params.userId,
+      token: req.params.token,
+    });
+
+    if (!token) return res.status(400).json("invalid link");
+    const newUser = await User.findByIdAndUpdate(req.params.userId, { verified: true },{new:true});
+    await token.remove();
+    console.log(newUser);
+    res.status(200).json("verified");
+  } catch (error) {}
+});
+
+
+
+
 module.exports = router;

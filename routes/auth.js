@@ -3,8 +3,11 @@ const mongoose = require("mongoose");
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const Token = require("../models/Token");
+const crypto = require("crypto");
+const sendMail = require("../utils/sendMail");
 
-
+console.log(process.env.PASS)
 router.post("/register", async (req, res) => {
   const salt = bcrypt.genSaltSync(10);
   const hashedPassword = bcrypt.hashSync(req.body.password, salt);
@@ -15,7 +18,18 @@ router.post("/register", async (req, res) => {
   });
   try {
     const savedUser = await newUser.save();
-    res.status(200).json(savedUser);
+    const token = new Token({
+      userId: savedUser._id,
+      token: crypto.randomBytes(32).toString("hex"),
+    });
+
+    const savedToken = await token.save();
+
+    const url = `${process.env.BASE_URL}/users/${savedUser._id}/verify/${savedToken.token}`;
+
+    await sendMail(savedUser.email,"Verify Email",url)
+    
+    res.status(200).json({message: "An email sent to account ,Please Verify"});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

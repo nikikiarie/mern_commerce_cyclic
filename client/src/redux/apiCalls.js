@@ -15,10 +15,15 @@ export const login = async (dispatch, user,navigate) => {
   }
 };
 
-export const register = async (user) => {
+export const register = async (user,setLoading,setError) => {
   try {
 
   const res = await axios.post('/api/auth/register',user)
+  setLoading(false)
+  setError(false)
+
   console.log(res.data)
-  } catch {}
+  } catch {
+    setError(true)
+  }
 };

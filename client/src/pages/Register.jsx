@@ -15,7 +15,9 @@ const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [image, setImage] = useState(null);
-  console.log(image);
+  const[error,setError] = useState(false)
+  const [loading,setLoading] = useState(false)
+  console.log({error,loading});
 
   const [password, setPassword] = useState("");
 
@@ -68,12 +70,12 @@ const Register = () => {
               email,
               password,
               img: downloadURL,
-            });
+            },setLoading,setError);
           });
         }
       );
     } else {
-      register({ firstname, lastname, username, email, password });
+      register({ firstname, lastname, username, email, password },setLoading,setError);
     }
   };
 

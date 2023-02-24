@@ -8,6 +8,7 @@ import Product from "./pages/Product";
 import ProductList from "./pages/ProductList";
 import Register from "./pages/Register";
 import Success from "./pages/Success";
+import Verify from "./pages/Verify";
 
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/products/:cat" element={<ProductList />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/users/:id/verify/:token" element={<Verify />} />
+
 
 
       </Routes>

@@ -16,7 +16,7 @@ router.post("/", verifyToken, async (req, res) => {
 
 router.get("/:id", verifyTokenAndAdmin, async (req, res) => {
     
-    const newOrder = new Order({ ...req.body });
+    const newOrder = new Order({ ...req.body});
     try {
       const savedOrder = await newOrder.save();
       res.status(200).json(savedOrder);
