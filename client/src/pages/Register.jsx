@@ -133,7 +133,7 @@ const Register = () => {
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
           <Button onClick={handleRegister} disabled={loading}>CREATE</Button>
-          {error ? <span>{error}</span> : ""}
+          {error ? <span>{error.response.data}</span> : ""}
           {loading ? <span style={{color:"teal",fontWeight:500}}>Creating Account</span> : ""}
           {data ? <span>{data}</span> : ""}
 

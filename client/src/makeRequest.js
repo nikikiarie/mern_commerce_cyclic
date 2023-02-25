@@ -1,4 +1,4 @@
-import axios from "axios"
+// import axios from "axios"
 
 // const baseUrl = "http://localhost:5000"
 
@@ -13,6 +13,7 @@ import axios from "axios"
 // export const privateRequest =  axios.create({
 //     baseURL:baseUrl,
 //     // headers:{
+
 //     //     token:`Bearer ${token}`
 //     // }
 // })
