@@ -134,6 +134,10 @@ const Register = () => {
           </Agreement>
           <Button onClick={handleRegister} disabled={loading}>CREATE</Button>
           {error ? <span>{error}</span> : ""}
+          {loading ? <span>Creating Account</span> : ""}
+          {data ? <span>{data}</span> : ""}
+
+
           
 
         </Form>
