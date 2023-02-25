@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import Announcement from '../components/Announcement';
+import NavBar from '../components/NavBar';
 
 const Verify = () => {
     const params = useParams()
@@ -18,6 +20,8 @@ const Verify = () => {
     }, [params.id,params.token]);
   return (
     <>
+    <Announcement/>
+      <NavBar />
     <div>Verified.</div>
     {data && <span> Welcome {data.firstname}</span>}
     <Link to={'/login'}>

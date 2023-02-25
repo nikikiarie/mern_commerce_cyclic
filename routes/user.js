@@ -88,14 +88,14 @@ router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-router.get("/:id/verify/:vtoken", async (req, res) => {
+router.get("/:id/verify/:token", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) return res.status(400).json("invalid link");
 
     const token = await Token.findOne({
-      userId: req.params.userId,
-      token: req.params.vtoken,
+      userId: req.params.id,
+      token: req.params.token,
     });
 
     if (!token) return res.status(400).json("invalid link");

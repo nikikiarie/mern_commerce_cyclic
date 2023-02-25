@@ -17,6 +17,8 @@ const Register = () => {
   const [image, setImage] = useState(null);
   const[error,setError] = useState(false)
   const [loading,setLoading] = useState(false)
+  const [data,setData] = useState(false)
+
   console.log({error,loading});
 
   const [password, setPassword] = useState("");
@@ -28,6 +30,7 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     if (image) {
+      setLoading(true) 
       const storageRef = ref(storage, image.name);
       console.log(storageRef);
       const uploadTask = uploadBytesResumable(storageRef, image);
@@ -70,12 +73,12 @@ const Register = () => {
               email,
               password,
               img: downloadURL,
-            },setLoading,setError);
+            },setLoading,setError,setData);
           });
         }
       );
     } else {
-      register({ firstname, lastname, username, email, password },setLoading,setError);
+      register({ firstname, lastname, username, email, password },setLoading,setError,setData);
     }
   };
 
@@ -129,7 +132,10 @@ const Register = () => {
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button onClick={handleRegister}>CREATE</Button>
+          <Button onClick={handleRegister} disabled={loading}>CREATE</Button>
+          {error ? <span>{error}</span> : ""}
+          
+
         </Form>
       </Wrapper>
     </Container>
@@ -187,6 +193,12 @@ const Button = styled.button`
   padding: 5px 10px;
   color: black;
   border: 2px solid teal;
+
+
+  :disabled{
+    background-color: gray;
+    color:black
+  }
 `;
 
 export default Register;

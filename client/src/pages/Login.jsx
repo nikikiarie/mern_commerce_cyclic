@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { login } from "../redux/apiCalls";
 import {useDispatch,useSelector} from 'react-redux'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -31,8 +31,10 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <Button onClick={handleClick}>LOGIN</Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
+          <LinkText>DO NOT YOU REMEMBER THE PASSWORD?</LinkText>
+          <Link to='/register' style={{textDecoration:"none",cursor:"pointer"}}>
+          <LinkText account >CREATE A NEW ACCOUNT</LinkText>
+          </Link>
         </Form>
       </Wrapper>
     </Container>
@@ -79,10 +81,12 @@ const Button = styled.button`
   font-weight: 500;
   margin-bottom: 10px;
 `;
-const Link = styled.div`
-  font-size: 12px;
+const LinkText = styled.div`
+  font-size: ${(props)=>props.account ? "14px" : "12px"};
   margin-bottom: 5px;
   text-decoration: underline;
+  margin-bottom: ${(props)=>props.account ? "" : "10px"};
+
 `;
 
 export default Login;
