@@ -22,11 +22,14 @@ const Verify = () => {
     <>
     <Announcement/>
       <NavBar />
-    <div>Verified.</div>
-    {data && <span> Welcome {data.firstname}</span>}
+      <div style={{display:"flex",alignItems:"center",justifyContent:'center',height:200}}>
+    <h3>Verified.</h3>
+    {data && <h4  style={{marginBottom:20}}> Welcome {data.username}</h4>}
+    <br/>
     <Link to={'/login'}>
     <button>LOG IN</button>
     </Link>
+    </div>
     </>
   )
 }

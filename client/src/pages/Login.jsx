@@ -32,7 +32,7 @@ const Login = () => {
           />
           <Button onClick={handleClick}>LOGIN</Button>
           <LinkText>DO NOT YOU REMEMBER THE PASSWORD?</LinkText>
-          <Link to='/register' style={{textDecoration:"none",cursor:"pointer"}}>
+          <Link to='/register' style={{textDecoration:"none",cursor:"pointer",color:"inherit"}}>
           <LinkText account >CREATE A NEW ACCOUNT</LinkText>
           </Link>
         </Form>
