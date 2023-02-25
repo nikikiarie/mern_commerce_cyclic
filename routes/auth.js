@@ -12,11 +12,26 @@ router.post("/register", async (req, res) => {
   const salt = bcrypt.genSaltSync(10);
   const hashedPassword = bcrypt.hashSync(req.body.password, salt);
 
+
+
+
   const newUser = new User({
     ...req.body,
     password: hashedPassword,
   });
   try {
+    const registereddUser = await User.findOne({username:req.body.username});
+
+    if(registereddUser) return res.status(409).json({message:"Username already registered"})
+
+
+
+
+    const registeredUser = await User.findOne({email:req.body.email});
+
+    if(registeredUser) return res.status(409).json({message:"Email already registered"})
+
+    
     const savedUser = await newUser.save();
     const token = new Token({
       userId: savedUser._id,
@@ -29,7 +44,7 @@ router.post("/register", async (req, res) => {
 
     await sendMail(savedUser.email,"Verify Email",url)
     
-    res.status(200).json({message: "An email sent to account ,Please Verify"});
+    res.status(200).json({message: "Verification email sent to your email account ,Please Verify"});
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

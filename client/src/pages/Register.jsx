@@ -17,9 +17,9 @@ const Register = () => {
   const [image, setImage] = useState(null);
   const[error,setError] = useState(false)
   const [loading,setLoading] = useState(false)
-  const [data,setData] = useState(false)
+  const [data,setData] = useState(null)
 
-  console.log({error,loading});
+  console.log({error,loading,data});
 
   const [password, setPassword] = useState("");
 
@@ -29,6 +29,8 @@ const Register = () => {
   
   const handleRegister = (e) => {
     e.preventDefault();
+    setData(null)
+    setError(false)
     if (image) {
       setLoading(true) 
       const storageRef = ref(storage, image.name);
@@ -132,10 +134,10 @@ const Register = () => {
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
-          <Button onClick={handleRegister} disabled={loading}>CREATE</Button>
-          {error ? <span>{error.response.data}</span> : ""}
-          {loading ? <span style={{color:"teal",fontWeight:500}}>Creating Account</span> : ""}
-          {data ? <span>{data}</span> : ""}
+          <Button onClick={(e)=>handleRegister(e)} disabled={loading}>CREATE</Button>
+          {error ? <span style={{color:"teal",fontWeight:500,marginTop:10}}>{error}</span> : ""}
+          {loading ? <span style={{color:"teal",fontWeight:500,marginTop:10}}>Creating Account</span> : ""}
+          {data ? <span style={{color:"teal",fontWeight:500}}>{data.message}</span> : ""}
 
 
           
@@ -190,18 +192,18 @@ const Agreement = styled.span`
 `;
 
 const Button = styled.button`
-  width: 25%;
   font-size: 18px;
   font-weight: 600;
   background-color: white;
   padding: 5px 10px;
   color: black;
   border: 2px solid teal;
+  cursor: pointer;
 
 
   :disabled{
-    background-color: gray;
-    color:black
+    background-color: teal;
+    color:white;
   }
 `;
 

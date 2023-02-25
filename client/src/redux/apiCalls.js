@@ -24,6 +24,8 @@ export const register = async (user, setLoading, setError, setData) => {
 
     console.log(res.data);
   } catch (err) {
-    setError(err);
+    setError(err?.response.data.message);
+    setLoading(false);
+
   }
 };
