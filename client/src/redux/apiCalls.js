@@ -15,7 +15,7 @@ export const login = async (dispatch, user, navigate) => {
 };
 
 export const register = async (user, setLoading, setError, setData) => {
-  !user.img && setLoading(true);
+  !user?.img && setLoading(true);
   try {
     const res = await axios.post("/api/auth/register", user);
     setData(res.data);
