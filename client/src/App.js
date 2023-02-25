@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login/>}/>
-        <Route path="/cart" element={user ? <Cart /> :<Navigate to={'/login'}/>} />
+        <Route path="/cart" element={ <Cart /> } />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/products/:cat" element={<ProductList />} />
         <Route path="/success" element={<Success />} />

@@ -141,6 +141,7 @@ const Color = styled.div`
   border-radius: 50px;
   background-color: ${(props) => props.color};
   margin: 0px 5px;
+  cursor: pointer;
 `;
 
 const Size = styled.div`

@@ -20,7 +20,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   console.log(cart);
   const user = useSelector((state) => state.user.user);
-  const token = useSelector((state) => state.user.user.accessToken);
+  const token = useSelector((state) => state.user.user?.accessToken);
 
   const dispatch = useDispatch()
 
