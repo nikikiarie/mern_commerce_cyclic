@@ -34,7 +34,7 @@ const Product = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`/api/users/find/${id}`);
+        const res = await axios.get(`/api/products/find/${id}`);
         setSingleProduct(res.data);
       } catch {}
     };

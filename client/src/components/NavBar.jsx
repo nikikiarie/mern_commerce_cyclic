@@ -31,7 +31,7 @@ const NavBar = () => {
         <Right>
           {user ? (
             <>
-            <h4>{user.username}</h4>
+            <h4  style={{marginRight:10}} >{user.username}</h4>
             <button onClick={()=>dispatch(logOut())}>Log Out</button>
             </>
           ) : (
