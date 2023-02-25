@@ -137,7 +137,7 @@ const Register = () => {
           <Button onClick={(e)=>handleRegister(e)} disabled={loading}>CREATE</Button>
           {error ? <span style={{color:"teal",fontWeight:500,marginTop:10}}>{error}</span> : ""}
           {loading ? <span style={{color:"teal",fontWeight:500,marginTop:10}}>Creating Account</span> : ""}
-          {data ? <span style={{color:"teal",fontWeight:500}}>{data.message}</span> : ""}
+          {data ? <span style={{color:"teal",fontWeight:500,marginTop:10}}>{data.message}</span> : ""}
 
 
           
