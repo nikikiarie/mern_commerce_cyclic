@@ -8,8 +8,14 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const loading = useSelector((state)=>state.user.isLoading)
+  const error = useSelector((state)=>state.user.error)
+
+ 
+  
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  
 
 
   const handleClick = (e) => {
@@ -30,7 +36,9 @@ const Login = () => {
             placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button onClick={handleClick}>LOGIN</Button>
+          <Button onClick={handleClick} disabled={loading}>LOGIN</Button>
+        {error && <span style={{color:"teal",fontWeight:500,marginBottom:10,fontSize:14}}>{error}</span>}
+
           <LinkText>DO NOT YOU REMEMBER THE PASSWORD?</LinkText>
           <Link to='/register' style={{textDecoration:"none",cursor:"pointer",color:"inherit"}}>
           <LinkText account >CREATE A NEW ACCOUNT</LinkText>
@@ -80,6 +88,11 @@ const Button = styled.button`
   justify-content: center;
   font-weight: 500;
   margin-bottom: 10px;
+
+  :disabled{
+  color: white;
+  background-color: teal;
+}
 `;
 const LinkText = styled.div`
   font-size: ${(props)=>props.account ? "14px" : "12px"};

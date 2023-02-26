@@ -1,16 +1,18 @@
-import { loginFailure, loginStart, loginSucess } from "./userSlice";
+import { loginFailure, loginStart, loginSucess, setError } from "./userSlice";
 import { publicRequest } from "../makeRequest";
 import axios from "axios";
 
 export const login = async (dispatch, user, navigate) => {
   dispatch(loginStart());
+  dispatch(setError());
+
   try {
     const res = await axios.post("/api/auth/login", user);
     console.log(res.data);
     dispatch(loginSucess(res.data));
     navigate("/");
   } catch (err) {
-    dispatch(loginFailure());
+    dispatch(loginFailure(err.response.data.message));
   }
 };
 
