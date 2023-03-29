@@ -27,11 +27,19 @@ const Hero = () => {
             <Img src={item.img} />
           </ImageContainer>
           <InfoContainer>
+            <div style={{display:'flex',padding:'10px'}}>
             <Title>LOUNGEWEAR LOVE</Title>
+
+            </div>
+            <div style={{display:'flex',padding:'10px'}}>
             <Desc>
               DON'T COMPROMISE ON STYLE! GET 30% OFF FOR NEW ARRIVALS{" "}
             </Desc>
+            </div>
+            <div style={{display:'flex',padding:'10px'}}>
             <Button>SHOP NOW</Button>
+
+            </div>
           </InfoContainer>
         </Slider>
         )}
@@ -85,15 +93,28 @@ const Slider = styled.div`
   display: flex;
   align-items: center;
   background-color: #${(props)=>props.item.bg};
+  position:relative;
+
+  @media only screen and (min-width: 768px) {
+    position:static;
+    
+      
+    }
 `;
 
 const ImageContainer = styled.div`
 height: 100%;
-  flex: 1;
+  width:100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 10px;
+  // padding: 10px 10px;
+
+  @media only screen and (min-width: 768px) {
+    position:static;
+    flex:1;
+      
+    }
 `;
 
 const Img = styled.img`
@@ -103,15 +124,22 @@ const Img = styled.img`
 `;
 
 const InfoContainer = styled.div`
-  flex: 1;
- padding:50px;
+ width:100%;
+
+ position:absolute;
+
+ @media only screen and (min-width: 768px) {
+  position:static;
+  flex:1;
+    
+  }
 `;
 
 const Title = styled.h1`
 font-size:48px;`;
 
 const Desc = styled.p`
-margin:30px 0px;
+// margin:30px 0px;
 letter-spacing:3px;`
 
 const Button = styled.button`

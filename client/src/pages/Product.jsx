@@ -85,26 +85,53 @@ const Product = () => {
 
 const Wrapper = styled.div`
   display: flex;
+  // align-items:center;
+  flex-direction:column;
   padding: 50px;
+
+  @media only screen and (min-width: 640px) {
+  flex-direction:row;
+   align-items:center;
+
+   
+        
+      }
 `;
 
 const Left = styled.div`
-  flex: 1;
+  // flex: 1;
+  max-width:500px;
+  height:300px;
+  @media only screen and (min-width: 640px) {
+    flex: 1;
+    height:80vh;
+     
+          
+        }
 `;
 
 const Img = styled.img`
   width: 100%;
-  height: 90vh;
+  height:100%;
+  // height: 90vh;
   object-fit: cover;
 `;
 
 const Right = styled.div`
   flex: 1;
-  padding: 0px 50px;
+  margin-top:20px;
+  // padding: 0px 50px;
+
+  @media only screen and (min-width: 640px) {
+    padding: 0px 50px;
+     
+          
+        }
 `;
 
 const Title = styled.h1`
   font-weight: 300;
+  // text-align:center;
 `;
 
 const Desc = styled.p`

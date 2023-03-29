@@ -66,7 +66,15 @@ const Title = styled.h1`
 
 const FilterContainer = styled.div`
   display: flex;
+  flex-direction:column;
   justify-content: space-between;
+
+  @media only screen and (min-width: 620px) {
+  flex-direction:row;
+    
+      
+          
+        }
 `;
 
 const Filter = styled.div`

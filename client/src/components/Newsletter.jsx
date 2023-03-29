@@ -19,6 +19,7 @@ const Newsletter = () => {
 
 const Container = styled.div`
   height: 60vh;
+
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -27,12 +28,22 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
+  font-size: 30px;
+
+  @media only screen and (min-width: 768px) {
   font-size: 70px;
+   
+      }
 `;
 const Subtitle = styled.h1`
-  font-size: 24px;
+  font-size: 16px;
   margin: 20px 0px;
   font-weight: 300;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 24px;
+     
+        }
 `;
 const InputContainer = styled.div`
   width: 50%;

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const CategoryItem = ({ item }) => {
   return (
     <Container>
-      <Link to={`/products/${item.cat}`}>
+      <Link to={`/products/${item.cat}`} style={{width:'100%'}}>
         <Img src={item.img} />
         <InfoContainer>
           <Title>{item.title}</Title>
@@ -18,10 +18,19 @@ const CategoryItem = ({ item }) => {
 
 const Container = styled.div`
   margin: 3px;
-  flex: 1;
-  height: 70vh;
+  display:flex;
+  width:300px;
+  height:300px;
+
+  
   background-color: yellow;
   position: relative;
+
+  @media only screen and (min-width: 768px) {
+  height: 70vh;
+  flex: 1;
+      
+    }
 `;
 
 const Img = styled.img`

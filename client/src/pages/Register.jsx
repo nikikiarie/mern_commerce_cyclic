@@ -163,11 +163,17 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 35%;
+  width: 60%;
   background-color: white;
   display: flex;
   flex-direction: column;
   padding: 20px;
+
+  @media only screen and (min-width: 768px) {
+  padding: 20px;
+  width: 50%;
+    
+  }
 `;
 const Title = styled.h1`
   font-size: 20px;

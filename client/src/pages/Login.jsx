@@ -61,9 +61,14 @@ const Container = styled.div`
     );
 `;
 const Wrapper = styled.div`
-  width: 25%;
+  width: 50%;
   background-color: white;
   padding: 20px;
+
+  @media only screen and (min-width: 768px) {
+    padding: 20px;
+    width: 35%;
+  }
 `;
 
 const Title = styled.div`

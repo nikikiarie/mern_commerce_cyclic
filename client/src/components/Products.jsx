@@ -23,11 +23,15 @@ const Products = ({ cat }) => {
     fetchData();
   }, [cat]);
   return (
+    <div>
+    <h1 style={{padding:'20px 0px',textAlign:'center',color:'#000000'}}>Products</h1>
+
     <Container>
       {pa.map((item) => (
         <ProductItem key={item._id} item={item} />
       ))}
     </Container>
+    </div>
   );
 };
 

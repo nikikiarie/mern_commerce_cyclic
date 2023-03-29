@@ -149,6 +149,7 @@ const Top = styled.div`
 `;
 
 const Button = styled.button`
+
   background-color: ${(props) =>
     props.direction === "left" ? "white" : "black"};
   color: ${(props) => (props.direction === "left" ? "black" : "white")};
@@ -158,7 +159,16 @@ const Button = styled.button`
   font-weight: 500;
 `;
 
-const Middle = styled.div``;
+const Middle = styled.div`
+display:none;
+
+@media only screen and (min-width: 768px) {
+  display:flex;
+    
+        
+      }
+
+`;
 
 const Text = styled.span`
   margin: 5px;
@@ -167,30 +177,69 @@ const Text = styled.span`
 
 const Bottom = styled.div`
   display: flex;
+  flex-direction:column;
   align-items: center;
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+      
+          
+        }
 `;
 
 const Info = styled.div`
-  flex: 3;
+width:100%;
   display: flex;
   margin: 0;
   padding: 0;
   flex-direction: column;
+
+
+  @media only screen and (min-width: 768px) {
+  // flex: 3;
+    
+      
+          
+        }
 `;
 
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top:20px;
+
+  @media only screen and (min-width: 768px) {
+  margin-top:20px;
+    
+  
+     
+        
+          
+              
+            }
 `;
 
 const ProductDetails = styled.div`
   flex: 2;
   display: flex;
+  flex-direction:column;
+  gap:20px;
+
+  @media only screen and (min-width: 768px) {
+  flex-direction:row;
+  gap:0px;
+
+   
+      
+        
+            
+          }
 `;
 
 const ProductImg = styled.img`
   width: 200px;
+  height:200px
 `;
 
 const ProductDetail = styled.div`
@@ -198,6 +247,8 @@ const ProductDetail = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
+
+ 
 `;
 
 const ProductName = styled.span``;
@@ -218,6 +269,8 @@ const PriceDetails = styled.div`
   flex-direction: column;
   flex: 1;
   align-items: center;
+
+  
 `;
 
 const ProductQuantity = styled.div`
@@ -246,6 +299,18 @@ const Summary = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+  margin-top:30px;
+
+  @media only screen and (min-width: 768px) {
+  margin-top:0px;
+    
+  
+     
+        
+          
+              
+            }
+
 `;
 const OrderTitle = styled.span`
   font-size: 30px;

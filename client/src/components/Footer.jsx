@@ -31,17 +31,13 @@ const Footer = () => {
         </IconContainer>
       </Left>
       <Center>
-        <Title>
-Useful Links
-        </Title>
+        <Title>Useful Links</Title>
         <List>
-            <ListItem>Home</ListItem>
-            <ListItem>Products</ListItem>
+          <ListItem>Home</ListItem>
+          <ListItem>Products</ListItem>
 
-            <ListItem>Users</ListItem>
-            <ListItem>Favourites</ListItem>
-            
-
+          <ListItem>Users</ListItem>
+          <ListItem>Favourites</ListItem>
         </List>
       </Center>
       <Right></Right>
@@ -51,13 +47,23 @@ Useful Links
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column-reverse;
   justify-content: space-between;
-  align-items: center;
+  gap: 40px;
+
+  
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const Left = styled.div`
   padding: 10px 20px;
-  flex: 1;
+
+   @media only screen and (min-width: 768px) {
+    padding: 10px 20px;
+    flex: 1;
+  }
 `;
 
 const Logo = styled.h1`
@@ -72,39 +78,41 @@ const Desc = styled.p`
 const IconContainer = styled.div`
   display: flex;
   align-items: center;
-
 `;
 
 const Icon = styled.div`
-background-color:${(props)=>props.color};
-margin-right: 30px;
+  background-color: ${(props) => props.color};
+  margin-right: 30px;
 `;
 
 const Center = styled.div`
-padding: 10px 20px;
+  padding: 10px 20px;
   flex: 1;
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.div`
-margin-bottom: 25px;
-font-size: 20px;
+  margin-bottom: 15px;
+  margin-top: 25px;
+
+  font-size: 20px;
 `;
 
 const List = styled.div`
- display: flex;
- flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const ListItem = styled.div`
-  width:50%;
-  padding:5px 0px;
+  width: 50%;
+  padding: 5px 0px;
   text-decoration: underline;
   cursor: pointer;
 `;
 
 const Right = styled.div`
+  display: none;
   flex: 1;
 `;
 export default Footer;

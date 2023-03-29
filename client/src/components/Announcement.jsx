@@ -17,8 +17,16 @@ background-color: teal;
 const Title = styled.div`
    padding:5px; 
    color:white;
-   font-size: 16px;
+   font-size: 14px;
    font-weight: 500;
+
+
+   @media only screen and (min-width: 620px) {
+   font-size: 16px;
+    
+      
+   }  
+
 `
 
 export default Announcement

@@ -11,7 +11,7 @@ import { logOut } from "../redux/userSlice";
 const NavBar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   const user = useSelector((state) => state.user.user);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   console.log(user);
   return (
     <Container>
@@ -31,8 +31,8 @@ const NavBar = () => {
         <Right>
           {user ? (
             <>
-            <h4  style={{marginRight:10}} >{user.username}</h4>
-            <button onClick={()=>dispatch(logOut())}>Log Out</button>
+              <h4 style={{ marginRight: 10 }}>{user.username}</h4>
+              <button onClick={() => dispatch(logOut())}>Log Out</button>
             </>
           ) : (
             <>
@@ -64,7 +64,13 @@ const NavBar = () => {
 };
 
 const Container = styled.div`
-  height: 56px;
+  height: 44px;
+
+  @media only screen and (min-width: 620px) {
+  height: 46px;
+    
+       
+    }  
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
@@ -74,8 +80,12 @@ const Wrapper = styled.div`
 `;
 
 const Left = styled.div`
-  display: flex;
+  display: none;
   flex: 1;
+
+  @media only screen and (min-width: 768px) {
+    display: flex;
+  }
 `;
 
 const InputContainer = styled.div`
@@ -93,8 +103,16 @@ const Input = styled.input`
 `;
 
 const Center = styled.div`
+  display: flex;
+
+  justify-content: start;
+
   flex: 1;
   text-align: center;
+
+  @media only screen and (min-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 const Title = styled.h1`
@@ -109,6 +127,10 @@ const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  @media only screen and (min-width: 768px) {
+    display: flex;
+  }
 `;
 
 const MenuItem = styled.div`
