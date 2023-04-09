@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
+import axios from  'axios';
 import styled from "styled-components";
 import NavBar from "../components/NavBar";
 import Announcement from "../components/Announcement";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useParams } from "react-router-dom";
-import { publicRequest } from "../makeRequest";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
-import axios from "axios";
+// import { publicRequest } from "../makeRequest";
 
 const Product = () => {
   const [size, setSize] = useState("");

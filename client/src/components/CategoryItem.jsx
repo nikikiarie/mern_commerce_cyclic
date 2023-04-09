@@ -23,7 +23,7 @@ const Container = styled.div`
   height:300px;
 
   
-  background-color: yellow;
+  
   position: relative;
 
   @media only screen and (min-width: 768px) {

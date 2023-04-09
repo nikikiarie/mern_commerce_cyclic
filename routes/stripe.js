@@ -1,6 +1,5 @@
 const express = require("express");
 const Order = require("../models/Order");
-console.log(process.env.STRIPE_SECRET_KEY_MY);
 
 const { verifyToken } = require("../verifyToken");
 const router = express.Router();
@@ -74,6 +73,7 @@ router.post("/payment", verifyToken, async (req, res) => {
     res.send({ url: session.url });
   } catch (err) {
     res.status(500).send({ mg: err });
+    console.log(err)
   }
 });
 
@@ -113,7 +113,7 @@ router.post(
   express.raw({ type: "application/json" }),
   (request, response) => {
     const sig = request.headers["stripe-signature"];
-
+console.log({sig})
     let event;
 
     try {

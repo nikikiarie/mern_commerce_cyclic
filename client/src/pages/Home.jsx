@@ -16,7 +16,10 @@ const Home = () => {
       <NavBar />
       <Hero/>
       <Category/>
+      <section id='products'>
       <Products/>
+
+      </section>
       <Newsletter/>
       <Footer/>
     </div>

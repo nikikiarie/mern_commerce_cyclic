@@ -28,11 +28,12 @@ const Register = () => {
 
   
   const handleRegister = (e) => {
+    setLoading(false)
     e.preventDefault();
     setData(null)
     setError(false)
     if (image) {
-      setLoading(true) 
+      // setLoading(true) 
       const storageRef = ref(storage, image.name);
       console.log(storageRef);
       const uploadTask = uploadBytesResumable(storageRef, image);
@@ -60,7 +61,7 @@ const Register = () => {
           }
         },
         (error) => {
-          // Handle unsuccessful uploads
+          console.log(error)
         },
         () => {
           // Handle successful uploads on complete

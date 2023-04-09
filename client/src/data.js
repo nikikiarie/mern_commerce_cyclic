@@ -1,23 +1,23 @@
 export const sliderItems = [
     {
         id: 1,
-        img: "https://i.ibb.co/cXFnLLV/3.png",
-        title: "LOUNGEWEAR LOVE",
+        img: "https://firebasestorage.googleapis.com/v0/b/example-one1.appspot.com/o/s1hlomi-platzman-VF0dgmBSf9Q-unsplash-removebg-preview.png?alt=media&token=aa7fd5b2-411d-4497-9004-f6e8acfb0806s",
+        title: "SUMMER SALE",
         desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
         bg: "fbf0f4",
       },
     {
       id: 2,
-      img: "https://i.ibb.co/XsdmR2c/1.png",
-      title: "SUMMER SALE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      img: "https://i.ibb.co/cXFnLLV/3.png",
+      title: "LOUNGEWEAR LOVE",
+      desc: "LATEST TRENDS IN STYLE",
       bg: "f5fafd",
     },
     {
       id: 3,
-      img: "https://i.ibb.co/DG69bQ4/2.png",
+      img: "https://firebasestorage.googleapis.com/v0/b/example-one1.appspot.com/o/d1iego-rosa-Yyk4OmVJAyE-unsplash-removebg-preview.png?alt=media&token=ad107dea-00ea-43e6-be9f-5249c8aa0215",
       title: "AUTUMN COLLECTION",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      desc: "ATUTUMN COMES IN STYLE",
       bg: "fcf1ed",
     },
    
@@ -27,7 +27,7 @@ export const sliderItems = [
   export const categories = [
     {
       id: 1,
-      img: "https://ibb.co/1026m1n",
+      img: "https://firebasestorage.googleapis.com/v0/b/example-one1.appspot.com/o/imani-bahati-LxVxPA1LOVM-unsplash.jpg?alt=media&token=c84a5f45-f261-4f1a-94ee-acb7fbcd0cb7",
       title: "SHOES",
       cat:'shoes',
     },
@@ -40,7 +40,7 @@ export const sliderItems = [
     },
     {
       id: 3,
-      img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      img: "https://firebasestorage.googleapis.com/v0/b/example-one1.appspot.com/o/luis-quintero-3qqiMT2LdR8-unsplash.jpg?alt=media&token=5c75b84e-ceba-4c92-9d71-b98da8a0ee6f",
       title: "MEN",
       cat:'men',
 

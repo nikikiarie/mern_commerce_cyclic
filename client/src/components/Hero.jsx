@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
-
+import {Link} from 'react-scroll'
 import {sliderItems} from '../data'
 
 const Hero = () => {
@@ -28,17 +28,18 @@ const Hero = () => {
           </ImageContainer>
           <InfoContainer>
             <div style={{display:'flex',padding:'10px'}}>
-            <Title>LOUNGEWEAR LOVE</Title>
+            <Title>{item?.title}</Title>
 
             </div>
             <div style={{display:'flex',padding:'10px'}}>
             <Desc>
-              DON'T COMPROMISE ON STYLE! GET 30% OFF FOR NEW ARRIVALS{" "}
+              {item?.desc}{" "}
             </Desc>
             </div>
             <div style={{display:'flex',padding:'10px'}}>
+              <Link to='products' spy={true} smooth={true} duration={500} >
             <Button>SHOP NOW</Button>
-
+            </Link>
             </div>
           </InfoContainer>
         </Slider>
@@ -136,10 +137,11 @@ const InfoContainer = styled.div`
 `;
 
 const Title = styled.h1`
-font-size:48px;`;
+ margin: 0px;
+ font-size:48px;`;
 
 const Desc = styled.p`
-// margin:30px 0px;
+ margin: 0px;
 letter-spacing:3px;`
 
 const Button = styled.button`

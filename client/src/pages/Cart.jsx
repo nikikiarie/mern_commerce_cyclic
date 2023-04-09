@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import axios from  'axios';
+
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import NavBar from "../components/NavBar";
@@ -6,10 +8,10 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import { useSelector } from "react-redux";
 
-import axios from "axios";
 import { decreaseProductAmount, increaseProductAmount } from "../redux/cartSlice";
 import {useDispatch} from 'react-redux'
 import { publicRequest } from "../makeRequest";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 
@@ -18,13 +20,18 @@ import { publicRequest } from "../makeRequest";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const navigate = useNavigate()
   console.log(cart);
-  const user = useSelector((state) => state.user.user);
-  const token = useSelector((state) => state.user.user?.accessToken);
+  const user = useSelector((state) => state.user?.user);
+  const token = useSelector((state) => state.user?.user?.accessToken);
+  const location = useLocation()
+  
+  
 
   const dispatch = useDispatch()
 
   const handleClick = () => {
+   
     const paymentCheckout = async () => {
       try {
         const res = await axios.post(
@@ -43,7 +50,7 @@ const Cart = () => {
         console.log(err);
       }
     };
-    paymentCheckout();
+    user? paymentCheckout() : navigate('/login',{state:location})
   };
   return (
     <div>
@@ -52,7 +59,7 @@ const Cart = () => {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <Button direction="left">CONTINUE SHOPPING</Button>
+          <Button direction="left" onClick={()=>navigate (-1)}>CONTINUE SHOPPING</Button>
 
           <Middle>
             <Text>Shopping Bag ({cart.quantity})</Text>
@@ -196,7 +203,7 @@ width:100%;
 
 
   @media only screen and (min-width: 768px) {
-  // flex: 3;
+  flex: 2;
     
       
           

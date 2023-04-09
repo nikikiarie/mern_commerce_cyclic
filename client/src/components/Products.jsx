@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ProductItem from "./ProductItem";
-import axios from "axios";
-import { publicRequest } from "../makeRequest";
-import { popularProducts } from "../data";
+// import { publicRequest } from "../makeRequest";
+import axios from  'axios';
+
 
 const Products = ({ cat }) => {
   const [pa, setPa] = useState([]);
-  console.log(cat);
-  console.log(pa);
+ 
 
   useEffect(() => {
     const fetchData = async () => {

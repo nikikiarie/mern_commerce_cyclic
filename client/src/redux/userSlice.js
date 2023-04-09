@@ -25,10 +25,13 @@ export const userSlice = createSlice({
       state.user = null
     },setError:(state)=>{
       state.error = false
+    },
+    setLoading:(state)=>{
+      state.isLoading = false
     }
   },
 });
 
-export const { setError,loginFailure, loginStart, loginSucess ,logOut} = userSlice.actions;
+export const { setError,loginFailure, loginStart, loginSucess ,logOut,setLoading} = userSlice.actions;
 
 export default userSlice.reducer;

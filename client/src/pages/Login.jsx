@@ -1,9 +1,9 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import styled from "styled-components";
 import { login } from "../redux/apiCalls";
 import {useDispatch,useSelector} from 'react-redux'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { setLoading } from "../redux/userSlice";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -11,16 +11,24 @@ const Login = () => {
   const loading = useSelector((state)=>state.user.isLoading)
   const error = useSelector((state)=>state.user.error)
 
- 
+
+  
   
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
-
+  const location = useLocation()
+  console.log(location)
+  const pathname = location?.state?.pathname
+ 
+  
 
   const handleClick = (e) => {
+    
+    console.log('dsd')
     e.preventDefault();
-    login(dispatch,{username,password},navigate)
+    dispatch(setLoading())
+    login(dispatch,{username,password},navigate,pathname)
   };
 
   return (
@@ -36,7 +44,7 @@ const Login = () => {
             placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button onClick={handleClick} disabled={loading}>LOGIN</Button>
+          <Button onClick={(e)=>handleClick(e)} >LOGIN</Button>
         {error && <span style={{color:"teal",fontWeight:500,marginBottom:10,fontSize:14}}>{error}</span>}
 
           <LinkText>DO NOT YOU REMEMBER THE PASSWORD?</LinkText>

@@ -4,7 +4,7 @@ import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Badge } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../redux/userSlice";
 
@@ -12,7 +12,10 @@ const NavBar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
-  console.log(user);
+  const navigate = useNavigate()
+  const location = useLocation()
+
+
   return (
     <Container>
       <Wrapper>
@@ -25,14 +28,28 @@ const NavBar = () => {
         </Left>
         <Center>
           <Link to="/" style={{ textDecoration: "none" }}>
-            <Title>NICK.</Title>
+            <Title>SHOP.</Title>
           </Link>
         </Center>
         <Right>
+          {user?.isAdmin ? (
+            <Link style={{ marginRight: "10px" }} to="/admin/home">
+              <button >Admin</button>
+            </Link>
+          ) : (
+            ""
+          )}
           {user ? (
             <>
               <h4 style={{ marginRight: 10 }}>{user.username}</h4>
-              <button onClick={() => dispatch(logOut())}>Log Out</button>
+              <button
+                onClick={() => {
+                  dispatch(logOut());
+                  navigate('/')
+                }}
+              >
+                Log Out
+              </button>
             </>
           ) : (
             <>
@@ -46,7 +63,7 @@ const NavBar = () => {
                 to="/login"
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <MenuItem>LogIn</MenuItem>
+                <MenuItem onClick={()=>navigate('/login',{state:location})}>LogIn</MenuItem>
               </Link>
             </>
           )}
@@ -67,10 +84,8 @@ const Container = styled.div`
   height: 44px;
 
   @media only screen and (min-width: 620px) {
-  height: 46px;
-    
-       
-    }  
+    height: 46px;
+  }
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;

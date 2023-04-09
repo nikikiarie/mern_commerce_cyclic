@@ -1,9 +1,10 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import axios from  'axios';
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import NavBar from "../components/NavBar";
+// import { publicRequest } from "../makeRequest";
 
 const Verify = () => {
   const params = useParams();
